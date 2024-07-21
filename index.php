@@ -2,10 +2,14 @@
 <html>
 <body>
 
-<h1>Welcome to My Website</h1>
-<?php
-echo "Hello, Binura Kolongoda!";
-?>
+<form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+  Name: <input type="text" name="fname">
+  <input type="submit">
+</form>
 
-</body>
-</html>
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $name = htmlspecialchars($_POST['fname']);
+  echo "Hello, " . $name;
+}
+?>
